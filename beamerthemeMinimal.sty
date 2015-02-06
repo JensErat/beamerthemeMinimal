@@ -1,0 +1,56 @@
+\usepackage{xcolor}
+\usepackage{etoolbox}
+
+% Reset beamer template to an unfancy, bare minimum
+% Can be savely removed to stick with the default template.
+\usetheme{default}
+\setbeamersize{text margin left=.75cm,text margin right=.75cm}
+\setbeamertemplate{navigation symbols}{}
+% Black circles for lists
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{item}{fg=black}
+% Black TOC with bullets instead of balls
+\setbeamercolor{section in toc}{fg=black}
+\setbeamertemplate{section in toc}{$\bullet$~\inserttocsection}
+% Black headings and captions
+\setbeamercolor{titlelike}{fg=black}
+\setbeamercolor{caption name}{fg=black}
+\setbeamercolor{block title}{fg=black}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{caption name}{series=\itshape}
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{block title}{size=\large,series=\bfseries}
+% Black bibliography
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+\setbeamercolor{bibliography item}{fg=black}
+% Partially reveal paused contents
+\setbeamercovered{transparent}
+% Enumerate figures
+\setbeamertemplate{caption}[numbered]
+
+% Headline, Frametitle, Footline templates
+\setbeamertemplate{headline}{
+  \vspace{2em}\hspace*{.75cm}\normalsize\normalfont \strut\ifnumequal{\insertframenumber}{1}{}{{\color{gray}\insertshorttitle\ifdefempty{\insertsection}{}{: }}\textbf{\insertsection}\strut\hfill {\color{gray}\insertshortauthor}\hspace*{.75cm}}
+
+  \vspace{.25em}\rule{\paperwidth}{2pt}
+}
+\setbeamertemplate{frametitle}
+{
+  \begin{flushleft}
+    {\strut\insertframetitle\strut\par}
+  \end{flushleft}\vspace{-.5em}
+}
+\setbeamertemplate{footline}{
+  \begin{flushright}
+    \insertframenumber \hspace{0.75cm} \mbox{}
+  \end{flushright}
+}
+
+% Reduce spacing in TOC
+% http://tex.stackexchange.com/a/51458/11198
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+
